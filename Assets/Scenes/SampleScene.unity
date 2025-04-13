@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 566166222}
   - component: {fileID: 566166224}
   m_Layer: 0
-  m_Name: Square
+  m_Name: CameraSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,7 +1196,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5849056, g: 0.5655927, b: 0.5655927, a: 1}
   m_FlipX: 0
@@ -1872,7 +1872,7 @@ GameObject:
   - component: {fileID: 1839970659}
   - component: {fileID: 1839970658}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Ball
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2034,11 +2034,12 @@ Transform:
   m_GameObject: {fileID: 1849858191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 566166220}
+  - {fileID: 2072338261}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1849858193
@@ -2054,9 +2055,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
-  _objectReferences: []
-  _serializedVariables: []
+  _serializedBlackboard: '{"_variables":{"cameraSprite":{"_value":1,"_name":"cameraSprite","_id":"b49e9093-7778-4275-9a79-aa075aba21db","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"flashSprite":{"_value":2,"_name":"flashSprite","_id":"62f98dd4-7d21-4c23-b019-31d7e191094e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"flashReset":{"_value":3.0,"_name":"flashReset","_id":"9f0f2cc3-eb2d-419d-b57b-174517151781","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 566166219}
+  - {fileID: 2072338260}
+  _serializedVariables:
+  - _json: '{"_value":1,"_name":"cameraSprite","_id":"b49e9093-7778-4275-9a79-aa075aba21db","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 566166219}
+  - _json: '{"_value":1,"_name":"flashSprite","_id":"62f98dd4-7d21-4c23-b019-31d7e191094e","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+      UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 2072338260}
+  - _json: '{"_value":3.0,"_name":"flashReset","_id":"9f0f2cc3-eb2d-419d-b57b-174517151781","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1849858194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,16 +2090,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"dynamic":true,"_position":{"x":670.0,"y":68.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"dynamic":true,"_position":{"x":559.0,"y":159.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_condition":{"objectTag":"Player","saveGameObjectAs":{"_name":""},"saveContactPoint":{"_name":""},"saveContactNormal":{"_name":""},"overrideAgent":{"_type":"UnityEngine.Rigidbody2D","_value":1},"$type":"NodeCanvas.Tasks.Conditions.CheckCollision2D_Rigidbody"},"_position":{"x":465.0,"y":291.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"2"},{"_position":{"x":639.0,"y":295.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"dynamic":true,"_position":{"x":749.0,"y":156.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"4"},{"_position":{"x":750.0,"y":254.0},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"5"},{"_position":{"x":843.0,"y":256.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"},{"_position":{"x":937.0,"y":159.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":772.9968,"y":81.33263},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"dynamic":true,"_position":{"x":554.6669,"y":195.6705},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_position":{"x":422.6116,"y":305.2936},"$type":"NodeCanvas.BehaviourTrees.Inverter","$id":"2"},{"_condition":{"objectTag":"Player","saveGameObjectAs":{"_name":""},"saveContactPoint":{"_name":""},"saveContactNormal":{"_name":""},"overrideAgent":{"_type":"UnityEngine.Rigidbody2D","_value":1},"$type":"NodeCanvas.Tasks.Conditions.CheckCollision2D_Rigidbody"},"_position":{"x":404.0021,"y":356.9943},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"3"},{"maxCount":{"_value":1},"coolDownTime":{"_value":5.0},"inactiveWhenLimited":false,"_position":{"x":641.8564,"y":290.924},"$type":"NodeCanvas.BehaviourTrees.Filter","$id":"4"},{"_position":{"x":640.9958,"y":353.5452},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"5"},{"repeatTimes":{"_name":"flashReset","_targetVariableID":"9f0f2cc3-eb2d-419d-b57b-174517151781"},"_position":{"x":549.9979,"y":411.6579},"$type":"NodeCanvas.BehaviourTrees.Repeater","$id":"6"},{"_action":{"actions":[{"cameraSprite":{"_name":"cameraSprite","_targetVariableID":"b49e9093-7778-4275-9a79-aa075aba21db"},"spriteRenderer":2,"$type":"NodeCanvas.Tasks.Actions.CameraPrepareAT"},{"waitTime":{"_value":1.0},"$type":"NodeCanvas.Tasks.Actions.Wait"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":541.2629,"y":489.2694},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"flashSprite":{"_name":"flashSprite","_targetVariableID":"62f98dd4-7d21-4c23-b019-31d7e191094e"},"spriteRenderer":3,"$type":"NodeCanvas.Tasks.Actions.CameraFlashAT"},"_position":{"x":691.9092,"y":418.6117},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"dynamic":true,"_position":{"x":776.9964,"y":226.3263},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_position":{"x":856.9858,"y":436.3122},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"10"},{"_position":{"x":957.6511,"y":433.3126},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"11"},{"_position":{"x":967.6627,"y":253.6542},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"12"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
   - {fileID: 566166223}
+  - {fileID: 566166221}
+  - {fileID: 2072338262}
   _boundGraphSource:
     _version: 3.31
     _category: 
     _comments: 
-    _translation: {x: -127, y: -47}
-    _zoomFactor: 1
+    _translation: {x: 1, y: -204}
+    _zoomFactor: 0.8557338
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -2282,6 +2304,90 @@ Transform:
   - {fileID: 1961082568}
   m_Father: {fileID: 67860715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2072338260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072338261}
+  - component: {fileID: 2072338262}
+  m_Layer: 0
+  m_Name: CameraFlash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072338261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072338260}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.01, z: 0}
+  m_LocalScale: {x: 11.377316, y: 11.377316, z: 11.377316}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1849858192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &2072338262
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072338260}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
